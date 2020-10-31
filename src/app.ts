@@ -1,21 +1,15 @@
-type Combinable = number | string; // union types
-type CombinableResultConverstions = "as-number" | "as-text"; // union and literal types
-
-function combine(
-  input1: Combinable, // checks number or string as type showed up before
-  input2: Combinable,
-  resultConversion: CombinableResultConverstions // only allow the type defined as CombinableResultConverstions as 3rd paramater
-) {
-  let result;
-  if (typeof input1 === "number" && typeof input2 === "number")
-    result = input1 + input2;
-  else result = input1.toString() + input2.toString();
-  if (resultConversion === "as-number") return parseFloat(result);
-  else return result.toString();
+function add(
+  n1: number,
+  n2: number
+): number /* type checks the return value data type as number*/ {
+  return n1 + n2; // this returns data type number
 }
 
-const combinedAges = combine(30, 26, "as-number");
-console.log(combinedAges);
+function printResult(num: number): void {
+  console.log("Result: " + num); // data type void
+  // if nothing is returned, means has the data type void
+  // in javascript it would just be undefined
+  //return "Result: " + num; = this is a string
+}
 
-const combinedNames = combine("Tyson", "Mat", "as-text"); // want to make it accept numbers AND string.
-console.log(combinedNames);
+console.log(printResult(add(5, 10))); // console logs undefined.
