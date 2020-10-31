@@ -11,6 +11,9 @@ const person = {
   role: Role.ADMIN, // type (number | string)[]
 };
 
+let favoriteActivitites: any[]; // Just normal array (Basically ignores type checking, plain javascript)
+favoriteActivitites = ["Hey", "Hi"];
+
 if (person.role === 0) {
   console.log(" Is Admin!");
 }
