@@ -6,10 +6,10 @@ function add(
 }
 
 function printResult(num: number): void {
-  console.log("Result: " + num); // data type void
-  // if nothing is returned, means has the data type void
-  // in javascript it would just be undefined
-  //return "Result: " + num; = this is a string
+  console.log("Result: " + num);
 }
 
-console.log(printResult(add(5, 10))); // console logs undefined.
+let combineValues: (a: number, b: number) => number; // only accepts functions that have 2 params that are numbers, and returns a number
+combineValues = add; // Add has 2 params that are numbers, and returns a number
+
+console.log(combineValues(8, 8)); // 16
