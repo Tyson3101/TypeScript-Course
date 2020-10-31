@@ -1,9 +1,35 @@
-let thisStayNumber = 5; // typescript guesses that we want to make this stay a number
-thisStayNumber = "Error 5"; // Errors
-thisStayNumber = [" Error 5"]; // Errors
-thisStayNumber = null; // Doesnt error
+/*
+interface Named {
+  name: string;
+}
 
-let thisDoesntStayNumber: any = 5; // Like said before, any basically ignores type checking
-thisDoesntStayNumber = " no Error 5"; // Doesnt Erorr
-thisDoesntStayNumber = [" no Error 5"]; // Doesnt Error
-thisDoesntStayNumber = null; // Doesnt error
+function sayName(o: Named) {
+  console.log(o.name); // Doesnt log cause error is catched with the interface
+}
+
+const bottle = {
+  litres: 1,
+};
+
+sayName(bottle); // Need name object
+
+*/
+
+interface Printable {
+  print();
+}
+
+const Tyson = {
+  name: "Tyson",
+  age: 546,
+  print: function () {
+    console.log(`My name is ${this.name} and I am ${this.age} years old!`);
+  },
+};
+
+function bottle(p: Printable) {
+  //Checks if object pass contains a print function
+  p.print();
+}
+
+bottle(Tyson); // logs My name is Tyson and I am 546 years old!
