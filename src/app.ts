@@ -1,19 +1,14 @@
-enum Role {
-  ADMIN = 5, // ADMIN = Starting Number (Text or whatever), default 0
-  READ_ONLY, // defualt plus 1 of last element of enum, or can redefine with number, string,etc
-  AUTHOR, // same as read only
+function combine(input1: number | string, input2: number | string) {
+  let result;
+  if (typeof input1 === "number" && typeof input2 === "number")
+    // if number
+    result = input1 + input2;
+  else result = input1.toString() + input2.toString(); // if string (we make sure it is a string or number in the paramaters so only else can be if string)
+  return result;
 }
 
-const person = {
-  name: "Tyson",
-  favNumber: 4,
-  hobbies: ["Coding", "Gaming"], // Type string[]
-  role: Role.ADMIN, // type (number | string)[]
-};
+const combinedAges = combine(30, 26);
+console.log(combinedAges);
 
-let favoriteActivitites: any[]; // Just normal array (Basically ignores type checking, plain javascript)
-favoriteActivitites = ["Hey", "Hi"];
-
-if (person.role === 0) {
-  console.log(" Is Admin!");
-}
+const combinedNames = combine("Tyson", "Mat"); // want to make it accept numbers AND string.
+console.log(combinedNames);
