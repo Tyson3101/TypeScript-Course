@@ -1,14 +1,18 @@
-function combine(input1: number | string, input2: number | string) {
+function combine(
+  input1: number | string,
+  input2: number | string,
+  resultConversion: "as-number" | "as-text" // only allow these as 3rd paramater
+) {
   let result;
   if (typeof input1 === "number" && typeof input2 === "number")
-    // if number
     result = input1 + input2;
-  else result = input1.toString() + input2.toString(); // if string (we make sure it is a string or number in the paramaters so only else can be if string)
-  return result;
+  else result = input1.toString() + input2.toString();
+  if (resultConversion === "as-number") return parseFloat(result);
+  else return result.toString();
 }
 
-const combinedAges = combine(30, 26);
+const combinedAges = combine(30, 26, "as-number");
 console.log(combinedAges);
 
-const combinedNames = combine("Tyson", "Mat"); // want to make it accept numbers AND string.
+const combinedNames = combine("Tyson", "Mat", "as-text"); // want to make it accept numbers AND string.
 console.log(combinedNames);
