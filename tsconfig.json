@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
     "target": "esnext",
-    "watch": true,
-    "lib": ["DOM", "esnext"]
-  }
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "removeComments": true,
+    "strictNullChecks": false,
+    "alwaysStrict": true,
+    "watch": true
+  },
+  "lib": ["DOM", "esnext"]
 }
